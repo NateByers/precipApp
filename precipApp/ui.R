@@ -14,7 +14,7 @@ shinyUI(fluidPage(
   titlePanel("Precipitation Graphs"),
 
   # Sidebar with a slider input for the number of bins
-  sidebarLayout(
+  verticalLayout(
     sidebarPanel(
       selectInput("station",
                   "Station:", 
