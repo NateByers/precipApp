@@ -10,9 +10,6 @@ data(substance_names)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
 
-  # Application title
-  titlePanel("Precipitation Graphs"),
-
   # Sidebar with a slider input for the number of bins
   verticalLayout(
     sidebarPanel(
