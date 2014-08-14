@@ -5,9 +5,20 @@ library(latticeExtra)
 
 data(wide_precip)
 
-samples <- colnames(wide.precip.df)[8:34]
+# remove air_temp column
+index.airtemp <- which(colnames(wide.precip.df) == "air_temp")
+wide.precip.df <- wide.precip.df[, -index.airtemp]
+
+# get substance columns
+first.index <- which(colnames(wide.precip.df) == "sat")
+last.index <- which(colnames(wide.precip.df) == "wind_strength")
+samples <- colnames(wide.precip.df)[first.index:last.index]
 
 data(substance_names)
+
+# remove air temperature name
+index.airtemp.name <- which(substance_names == "Air Temp (Lookup)")
+substance_names <- substance_names[-index.airtemp.name]
 
 # Define server logic required to draw a lattice graph
 shinyServer(function(input, output) {

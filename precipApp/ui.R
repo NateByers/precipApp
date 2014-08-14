@@ -7,6 +7,10 @@ stations <- unique(wide.precip.df$station[!is.na(wide.precip.df$station)])
 
 data(substance_names)
 
+# remove air temperature name
+index.airtemp.name <- which(substance_names == "Air Temp (Lookup)")
+substance_names <- substance_names[-index.airtemp.name]
+
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
 
